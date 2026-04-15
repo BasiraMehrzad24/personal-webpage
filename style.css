@@ -39,7 +39,6 @@ nav{
 @keyframes name-movement {
   from {
    color:#5b7185;
-
   }
   to {
    color: var(--main-color);
@@ -85,15 +84,26 @@ nav{
 .container{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    box-shadow: 0  0 30px var(--primary-color);
+    /* box-shadow: 0  0 30px var(--primary-color);
     background-color: var(--primary-color);
-    border-radius:40px ;
-    width: 80%;
+    border-radius:40px ; */
+    width: 100%;
     height: 35rem;
     margin: auto;
     margin-top: 100px;
     overflow: hidden;
+    animation: fadeSlide 0.8s ease;
+}
 
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .image{
@@ -115,8 +125,8 @@ nav{
 }
 
 .about{
-margin: auto;
-padding: 40px;
+margin: 40px;
+padding: 10px;
 text-align: center;
 color: #5b7185;
 }
@@ -127,13 +137,14 @@ color: #5b7185;
  .bio{
    width: 700;
    line-height: 1.5;
-   letter-spacing: 0.5px;
+   letter-spacing: 0.1px;
    font-size: 18px;
    padding-left: 20px;
    color: #5b7185;
    text-align: justify;
    border-radius: 20px;
    text-overflow: ellipsis;
+   overflow: hidden;
    border-left: 3px solid var(--core-color);
    animation-name: line-color;
    animation: line-color 2s infinite alternate;
@@ -148,3 +159,126 @@ color: #5b7185;
   }
     
  }
+
+ .job-title { 
+    font-size:8px;
+    font-weight: 400;
+    font-family: sans-serif;
+    width: 50%;
+    height:20px;
+    bottom: 15px;
+    text-align: center;
+    padding: 5px;
+    text-transform: uppercase;
+    margin: auto;
+
+    position: relative;
+ }
+
+ .job-title::before {
+  content: "";
+  position: absolute;
+  left: 70px;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color:var(--main-color);
+  border-radius: 50%;
+  animation: dotPulse 1.5s infinite ease-in-out;
+
+}
+@keyframes dotPulse {
+  0% {
+    transform: translateY(-50%) scale(1.1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50%) scale(1.3);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+  }
+   from{
+    background-color: var(--core-color);
+    }
+    to{
+        background-color: var(--main-color);
+    }
+
+}
+
+#skills
+{
+    height: 35rem;
+    background-color:var(--primary-color);
+}
+
+#skill-title{
+    padding: 10px;
+    text-align: center;
+    color: #5b7185;
+    animation: logo-box 3s infinite alternate;
+}
+
+@keyframes logo-box {
+    from{
+        color: var(--core-color);
+    }
+    to{
+        color: var(--main-color);
+    }
+    
+}
+#skill-line{
+width: 150px;
+   margin: auto;
+   height: 3px;
+   border: none;
+   background-color: #5b7185;
+}
+
+.learning-logo{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 20px;
+
+}
+#site-link{
+ width: 150px;
+ height: 150px;
+ border-radius: 20px;
+  box-shadow: 0  0 15px var(--core-color);
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+#site-link svg {
+  width: 80px;  
+  height: 100px;
+   margin-top: 50px;
+  animation: skill-movement 1.5s infinite ease-in-out;
+}
+
+@keyframes skill-movement {
+  0% {
+    transform: translateY(-20%) scale(1.1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-20%) scale(1.3);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-20%) scale(1);
+    opacity: 1;
+  }
+
+}
